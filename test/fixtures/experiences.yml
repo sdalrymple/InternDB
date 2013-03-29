@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  organization: MyString
+  industry: MyString
+  location: MyString
+  function: MyString
+  season: MyString
+  year: 1
+  paid: false
+  user_id: 1
+  rating: 1
+  extended: false
+  accepted: false
+  contact: MyString
+  approved: false
+  review: MyText
+
+two:
+  organization: MyString
+  industry: MyString
+  location: MyString
+  function: MyString
+  season: MyString
+  year: 1
+  paid: false
+  user_id: 1
+  rating: 1
+  extended: false
+  accepted: false
+  contact: MyString
+  approved: false
+  review: MyText
