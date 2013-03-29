@@ -1,0 +1,29 @@
+commit 5d7299ef2a9b74fd0988e029c7e04e064b53acde
+Author: Dylan Hercher <dhercher@colgate.edu>
+Date:   Sun Mar 24 15:50:42 2013 -0400
+
+    added student authentication cuke
+
+commit 9087ef615fcb2a16dd703be5cc9a74f21291642e
+Author: Sean Dalrymple <sdalrymple@colgate.edu>
+Date:   Sun Mar 24 15:49:25 2013 -0400
+
+    Adding a test for the home page
+
+commit 3fa9334e709c08fe340507ab728040432269426f
+Author: Sean Dalrymple <sdalrymple@colgate.edu>
+Date:   Sun Mar 24 15:15:00 2013 -0400
+
+    Add review test added
+
+commit c9fb90c8fbf61dee268b35409b8977963120cde6
+Author: Sean Dalrymple <sdalrymple@colgate.edu>
+Date:   Sun Mar 24 14:55:21 2013 -0400
+
+    adding cukes features
+
+commit d86c3dfd33db71c682d674a8b9c86fbb7e9e2487
+Author: Sean Dalrymple <sdalrymple@colgate.edu>
+Date:   Sun Mar 24 14:45:54 2013 -0400
+
+    First Commit

@@ -6,9 +6,11 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'cucumber-rails'
-gem 'capybara'
-gem 'cucumber-rails-training-wheels'
+group :test do
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'cucumber-rails-training-wheels'
+end
 gem 'haml'
 
 
