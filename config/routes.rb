@@ -1,4 +1,11 @@
 InternDB::Application.routes.draw do
+
+  resources :users
+  resources :experiences
+
+  match '/login' => 'users#login'
+
+  root to: 'users#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

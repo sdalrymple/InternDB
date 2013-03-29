@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'cucumber-rails'
 gem 'capybara'
 gem 'cucumber-rails-training-wheels'
+gem 'haml'
 
 
 
