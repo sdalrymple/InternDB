@@ -1,1 +1,22 @@
-%h1 Home
+%h1 Welcome to the Colgate Intern Database
+
+%h2 Reviews:
+
+%table#reviewlist
+  %tbody
+    - @experiences.each do |experience|
+      %tr#entry
+        %td#title= experience.organization
+        %td= experience.industry
+        %td= experience.year
+        %td= experience.season
+        %td= experience.function
+        %td= experience.paid_str
+        %td= experience.location
+        %td= experience.rating
+        %td= experience.result
+        %td= experience.review
+        %td= experience.contact
+
+= link_to 'Share your experience', new_experience_path
+

@@ -11,6 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130329210228) do
+
+  create_table "experiences", :force => true do |t|
+    t.string   "organization"
+    t.string   "industry"
+    t.string   "location"
+    t.string   "function"
+    t.string   "season"
+    t.integer  "year"
+    t.boolean  "paid"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.boolean  "extended"
+    t.boolean  "accepted"
+    t.string   "contact"
+    t.boolean  "approved"
+    t.text     "review"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.integer  "class_year"
+    t.string   "email"
+    t.string   "major"
+    t.string   "user_role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

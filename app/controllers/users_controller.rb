@@ -23,6 +23,9 @@ class UsersController < ApplicationController
   end
 
   def home
+    @experiences = Experience.all
+
+
   end
 
 
