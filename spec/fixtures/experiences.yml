@@ -1,0 +1,53 @@
+#spec/fixtures/experiences.yml
+
+goldman_experience:
+  accepted: true
+  approved: true
+  contact: Lloyd Blankfein
+  extended: true
+  function: Desk Analyst
+  industry: Financial Services
+  location: New York, New York
+  organization: Goldman Sachs
+  paid: true
+  rating: 5
+  review: exciting, informative experience
+  season: summer
+  user_id: 1
+  year: 2011
+
+colgate_experience:
+  accepted: false
+  approved: true
+  contact: Joel Sommers
+  extended: false
+  function: Network Research
+  industry: Scientific Research
+  location: Hamiltion, New York
+  organization: Colgate University
+  paid: true
+  rating: 5
+  review: hands on research, would reccommend.
+  season: summer
+  user_id: 2
+  year: 2012
+
+
+
+NBC_experience:
+  accepted: false
+  approved: true
+  contact: Conan O'Brian
+  extended: true
+  function: Research Assistant
+  industry: Entertainment/Film/Tv
+  location: Los Angeles, California
+  organization: NBC
+  paid: false
+  rating: 5
+  review: some issues with upper level management, but fun nonetheless
+  season: winter
+  user_id: 3
+  year: 2010
+
+

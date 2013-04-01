@@ -2,21 +2,28 @@
 
 %h2 Reviews:
 
-%table#reviewlist
-  %tbody
-    - @experiences.each do |experience|
-      %tr#entry
-        %td#title= experience.organization
-        %td= experience.industry
-        %td= experience.year
-        %td= experience.season
-        %td= experience.function
-        %td= experience.paid_str
-        %td= experience.location
-        %td= experience.rating
-        %td= experience.result
-        %td= experience.review
-        %td= experience.contact
-
+#reviewlist
+  - @experiences.each do |experience|
+    .entry
+      %strong.origanization= experience.organization
+      %span.industry= experience.industry
+      %span.season= experience.season
+      %span.year= experience.year
+      %span <br/>
+      %span.function= experience.function
+      %span.paid= experience.paid_str
+      %span.location= experience.location
+      %span <br/>
+      %body Rating:
+      %span.rating= experience.rating
+      %span.result= experience.result
+      %span <br/>
+      %body Review:
+      %p.review= experience.review
+      %span Contact:
+      %span.contact= experience.contact
+      %br
+      %br
+      
 = link_to 'Share your experience', new_experience_path
 

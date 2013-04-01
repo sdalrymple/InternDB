@@ -23,8 +23,12 @@ class UsersController < ApplicationController
   end
 
   def home
-    @experiences = Experience.all
-
+   logged = params[:user_id] || false
+   if logged
+     @experiences = Experience.all
+   else   #Should we refactor this to a filter? b/c were going to be checking this every request
+     redirect_to login_path
+   end
 
   end
 

@@ -20,6 +20,7 @@ class Experience < ActiveRecord::Base
     else
       "No Offer"
     end
+    
   end
 
 end
