@@ -3,12 +3,18 @@ InternDB::Application.routes.draw do
   resources :users
   resources :experiences
 
-  match '/login' => 'users#login'
+  # match '/login' => 'users#login'
 
   root to: 'users#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
   root :to => redirect('/experiences')
+
+  get   '/login', :to => 'sessions#new', :as => :login
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/:provider', :to => 'sessions#create'
+  match '/auth/failure', :to => 'sessions#failure'
+  get '/logout', :to => 'sessions#destroy'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

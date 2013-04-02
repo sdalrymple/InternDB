@@ -34,4 +34,7 @@ InternDB::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  GOOGLE_KEY = '908672816924.apps.googleusercontent.com'
+  GOOGLE_SECRET = 'VKnWvNPSOfiupz4CTrdUDxwR'
 end

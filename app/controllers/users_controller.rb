@@ -1,8 +1,7 @@
+require 'gmail_xoauth'
 class UsersController < ApplicationController
+  # include OauthHelper
 
-
-  def login
-  end
 
   def logout
   end
@@ -31,7 +30,6 @@ class UsersController < ApplicationController
    end
 
   end
-
 
 
 end
