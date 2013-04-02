@@ -6,7 +6,7 @@ class ExperiencesController < ApplicationController
   def create
       @experience = Experience.create!(params[:experience])
       flash[:notice]= "Your experience at #{@experience.organization} was added successfully!"
-      redirect_to experiences_path
+      redirect_to root_path
   end
 
   def index

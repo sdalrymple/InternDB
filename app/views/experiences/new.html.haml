@@ -1,39 +1,39 @@
 %h1 Share Your Experience!
 
 = form_tag experiences_path do 
-   = label :organization, :organization,"Name of Organization"  
-   = text_field :organization, "Name of Organization" 
-   = label :location, :location, "City"
-   = select :location, :location, ['New York', 'San Francisco', 'Boston']  
+   = label :experience, :organization, 'Name of Organization'  
+   = text_field :experience, 'organization' 
+   = label :experience, :location, "City"
+   = select :experience, :location, ['New York', 'San Francisco', 'Boston']  
    %br
    %br
-   = label :industry, :industry, "Industry"
-   = select :industry, :industry, ['Accounting','Insurance','Healthcare','Business','Information Technology']
-   = label :function, :function, "Role function"
-   = select :function, :function, ['Advertising', 'Administrative', 'Marketing', 'Event Planning']
+   = label :experience, :industry, "Industry"
+   = select :experience, :industry, ['Accounting','Insurance','Healthcare','Business','Information Technology']
+   = label :experience, :function, "Role function"
+   = select :experience, :function, ['Advertising', 'Administrative', 'Marketing', 'Event Planning']
 
    %br
    %br
-   = label :organization, :review, "Describe your Experience below"
+   = label :experience, :review, 'Describe your Experience below'
    %br
-   = text_area :review, "Describe your Experience below"
-   %br
-   %br
-   = label :paid, "Paid?"
-   = select :paid, :paid, ['Yes','No']
+   = text_area :experience, 'review'
    %br
    %br
-   = label :contact, :contact, "Name of Contact"
-   = text_field :contact, :contact
-   = label :year, :season, "Season"
-   = select :year, :year, [2011,2012,2013,2014,2015] 
-   = label :year, :season, "Season"
-   = select :year, :season, ['Spring', 'Winter','Summer','Fall']
+   = label :experience, "Paid?"
+   = select :experience, :paid, ['Yes','No']
+   %br
+   %br
+   = label :experience, :contact, "Name of Contact"
+   = text_field :experience, :contact
+   = label :experience, :season, "Season"
+   = select :experience, :year, [2011,2012,2013,2014,2015] 
+   = label :experience, :season, "Season"
+   = select :experience, :season, ['Spring', 'Winter','Summer','Fall']
    
    %br
    %br
    
-   = label :rating, "Rate your experience out of 10"
-   = select :rating, :rating, [1,2,3,4,5,6,7,8,9,10]	
+   = label :experience, :rating, "Rate your experience out of 10"
+   = select :experience, :rating, [1,2,3,4,5,6,7,8,9,10]	
    = submit_tag "Submit" 
 
