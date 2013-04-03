@@ -55,3 +55,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 gem 'haml'
+gem 'ruby-hmac'
