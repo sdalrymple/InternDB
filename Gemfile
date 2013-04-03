@@ -28,6 +28,7 @@ end
 
 gem 'haml'
 gem 'gmail_xoauth', "~> 0.4.1"
+gem 'oauth'
 gem 'omniauth'
 gem "omniauth-google-oauth2"
 
