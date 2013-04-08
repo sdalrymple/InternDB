@@ -22,14 +22,18 @@ group :test do
   gem 'cucumber-rails-training-wheels'
 end
 
+
 group :production do
   gem 'pg'
 end
 
 
+gem 'debugger'
+
 gem 'haml'
 gem 'gmail_xoauth', "~> 0.4.1"
 gem 'omniauth'
+
 
 
 # Gems used only for assets and not required
