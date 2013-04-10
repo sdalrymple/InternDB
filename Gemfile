@@ -61,3 +61,5 @@ gem 'jquery-rails'
 
 gem 'haml'
 gem 'ruby-hmac'
+
+gem "hike", "~> 1.2.2"
