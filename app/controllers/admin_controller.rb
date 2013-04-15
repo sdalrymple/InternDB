@@ -28,6 +28,11 @@ class AdminController < ApplicationController
   end
 
   def deny
+    id = params[:id]
+    @experience = Experience.find(id)
+    @user = User.find(@experience[:user_id])
+    UserMailer.deny_email(@user).deliver
+    redirect_to admin_unapproved_path
   end
 
   def edit
