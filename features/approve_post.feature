@@ -7,16 +7,17 @@ Feature: Give approve and reject capabilities to the Admin Credentialed
 
 Background:
 
- Given There is at least one post in the approval log
- And I am viewing one of those posts
- And that I am logged in
- And that I am and admin
+
+#Given the there exists a experience named "exp1" with the following data:
+# accepted | approved | contact | extended | function | industry | location | organization | paid | rating | id  |
+# true     | false    | Mr. Lee | true     | QA       | software | NYC      | Google       | true | 5      | 999 |
+  Given I am on the view review page
 
 
 Scenario: Approve Post
   When I press "Approve"
   Then I should be on the approval log page
-  And I should see "Post has been approved"
+  And I should see "Post has been approved!"
 
 Scenario: Deny Post
   When I press "Deny"

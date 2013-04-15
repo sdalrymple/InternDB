@@ -23,7 +23,7 @@ class AdminController < ApplicationController
     id = params[:id]
     @experience = Experience.find(id)
     @experience.update_attributes!(:approved => true)
-    flash[:notice] = "Review has been approved!"
+    flash[:notice] = "Post has been approved!"
     redirect_to admin_unapproved_path
   end
 
@@ -32,7 +32,7 @@ class AdminController < ApplicationController
     @experience = Experience.find(id)
     @user = User.find(@experience[:user_id])
     UserMailer.deny_email(@user).deliver
-    flash[:notice] = "review has been deleted, and user has been notified"
+    flash[:notice] = "Post has been denied, student has been notified"
     @experience.destroy
     redirect_to admin_unapproved_path
   end
@@ -44,7 +44,7 @@ class AdminController < ApplicationController
   def update
     @experience = Experience.find params[:id]
     @experience.update_attributes!(params[:experience])
-    flash[:notice] = "Review is succesfully updated!"
+    flash[:notice] = "Post has been changed!"
     redirect_to admin_path(@experience)
   end
 

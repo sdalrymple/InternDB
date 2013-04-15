@@ -63,3 +63,5 @@ gem 'haml'
 gem 'ruby-hmac'
 
 gem "hike", "~> 1.2.2"
+
+gem "factory_girl_rails", "~> 4.0"

@@ -17,6 +17,11 @@ module NavigationHelpers
 
     when /^the login page$/ then '/login'
 
+    when /^the view review page$/ then '/admin/1'
+
+    when /^the approval log page$/ then '/admin/unapproved'
+    when /^the edit page$/ then '/admin/1/edit'
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
