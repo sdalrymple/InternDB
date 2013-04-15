@@ -32,6 +32,8 @@ class AdminController < ApplicationController
     @experience = Experience.find(id)
     @user = User.find(@experience[:user_id])
     UserMailer.deny_email(@user).deliver
+    flash[:notice] = "review has been deleted, and user has been notified"
+    @experience.destroy
     redirect_to admin_unapproved_path
   end
 
