@@ -1,0 +1,36 @@
+%h1 Colgate InternDB
+
+%h2 Details: 
+
+
+%strong.origanization= @experience.organization
+%span.industry= @experience.industry
+%span.date= @experience.year
+%span.date= @experience.season
+%span <br/>
+%span.function= @experience.function
+%span.paid= @experience.paid_str
+%span.location= @experience.location
+%span <br/>
+%body Rating:
+%span.rating= @experience.rating
+%span.result= @experience.result
+%span <br/>
+%body Review:
+%p.review= @experience.review
+%span Contact:
+%span.contact= @experience.contact
+%br
+%br
+
+%body Written by:
+%span= @user.name
+
+
+= button_to 'Approve', @approveURI, :method => :approve
+= button_to 'Deny', @denyURI
+= button_to 'Edit', edit_admin_path(@experience.id), :method => :get
+= button_to 'Back', admin_unapproved_path
+
+
+

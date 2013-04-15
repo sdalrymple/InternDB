@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def home
    logged = session[:user_id] || false
    if logged
-     @experiences = Experience.all
+     @experiences = Experience.where("approved = ?", true)
    else   #Should we refactor this to a filter? b/c were going to be checking this every request
      redirect_to login_path
    end

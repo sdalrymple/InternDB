@@ -1,0 +1,38 @@
+%h1 Share Your Experience!
+
+= form_tag admin_path(@experience), :method => :put do 
+   = label :experience, :organization, 'Name of Organization'  
+   = text_field :experience, 'organization' 
+   = label :experience, :location, "City"
+   = select :experience, :location, ['New York', 'San Francisco', 'Boston']  
+   %br
+   %br
+   = label :experience, :industry, "Industry"
+   = select :experience, :industry, ['Accounting','Insurance','Healthcare','Business','Information Technology']
+   = label :experience, :function, "Role function"
+   = select :experience, :function, ['Advertising', 'Administrative', 'Marketing', 'Event Planning']
+
+   %br
+   %br
+   = label :experience, :review, 'Describe your Experience below'
+   %br
+   = text_area :experience, 'review'
+   %br
+   %br
+   = label :experience, "Paid?"
+   = select :experience, :paid, ['Yes','No']
+   %br
+   %br
+   = label :experience, :contact, "Name of Contact"
+   = text_field :experience, :contact
+   = label :experience, :season, "Season"
+   = select :experience, :year, [2011,2012,2013,2014,2015] 
+   = label :experience, :season, "Season"
+   = select :experience, :season, ['Spring', 'Winter','Summer','Fall']
+   
+   %br
+   %br
+   
+   = label :experience, :rating, "Rate your experience out of 10"
+   = select :experience, :rating, [1,2,3,4,5,6,7,8,9,10]	
+   = submit_tag "Submit" 

@@ -2,7 +2,6 @@ InternDB::Application.routes.draw do
 
   resources :users
   resources :experiences
-
   # match '/login' => 'users#login'
 
   root to: 'users#home'
@@ -15,6 +14,11 @@ InternDB::Application.routes.draw do
   match '/auth/:provider', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
   get '/logout', :to => 'sessions#destroy'
+  match '/admin/unapproved'
+  match '/admin/:id/approve' => 'admin#approve'
+  match '/admin/:id/deny' => 'admin#deny'
+  resources :admin
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

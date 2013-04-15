@@ -1,0 +1,23 @@
+%h1 Colgate InternDB Pending Posts
+
+
+%table#experiences
+  %thead
+    %tr
+      %th Student
+      %th Company
+      %th Role
+      %th Date of Internship
+      %th Date of Review
+      %th Rating
+      %th View
+  %tbody
+    - @unapproved.each do |un|
+      %td= "af"
+      %td= un.organization
+      %td= un.function
+      %td= un.date_str
+      %td= un.updated_at
+      %td= un.rating
+      %td= link_to "View", admin_path(un)
+
