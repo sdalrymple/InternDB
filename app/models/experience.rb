@@ -2,6 +2,11 @@ class Experience < ActiveRecord::Base
 
   attr_accessible :accepted, :approved, :contact, :extended, :function, :industry, :location, :organization, :paid, :rating, :review, :season, :user_id, :year
 
+  def get_name
+    User.find(self.user_id).name
+  end
+  
+  
   def date_str
     self.season + " " + (self.year).to_s
   end

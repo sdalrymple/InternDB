@@ -13,7 +13,7 @@
       %th View
   %tbody
     - @unapproved.each do |un|
-      %td= "af"
+      %td= un.get_name
       %td= un.organization
       %td= un.function
       %td= un.date_str
