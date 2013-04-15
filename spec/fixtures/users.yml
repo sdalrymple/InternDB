@@ -1,0 +1,18 @@
+#spec/fixtures/users.yml
+
+student_user:
+  class_year: 2013
+  email: jschmoe@colgate.edu
+  major: Computer Science
+  name: Joe Schmoe 
+  user_role: student
+  id: 2
+
+admin_user:
+  class_year: 0000
+  email: jobs@colgate.edu
+  major: nil
+  name: jackie obs
+  user_role: admin
+  id: 5
+

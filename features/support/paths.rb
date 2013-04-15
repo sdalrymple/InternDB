@@ -17,10 +17,10 @@ module NavigationHelpers
 
     when /^the login page$/ then '/login'
 
-    when /^the view review page$/ then '/admin/1'
+    when /^the view review page$/ then '/admin/2'
 
     when /^the approval log page$/ then '/admin/unapproved'
-    when /^the edit page$/ then '/admin/1/edit'
+    when /^the edit page$/ then '/admin/2/edit'
 
 
     # Add more mappings here.
