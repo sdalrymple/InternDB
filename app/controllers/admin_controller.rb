@@ -1,7 +1,17 @@
 require 'gmail_xoauth'
 class AdminController < ApplicationController
   
+  before_filter :require_admin
 
+  def home
+   logged = session[:user_id] || false
+   if logged
+     @experiences = Experience.where("approved = ?", true)
+   else   #Should we refactor this to a filter? b/c were going to be checking this every request
+     redirect_to login_path
+   end
+
+  end
   
 
   def unapproved
@@ -46,6 +56,15 @@ class AdminController < ApplicationController
     @experience.update_attributes!(params[:experience])
     flash[:notice] = "Post has been changed!"
     redirect_to admin_path(@experience)
+  end
+
+  private
+
+  def require_admin
+    unless User.find(session[:user_id]).is_admin?
+      flash[:error] = "You must be an admin in to access this section"
+      redirect_to :root
+    end
   end
 
 end

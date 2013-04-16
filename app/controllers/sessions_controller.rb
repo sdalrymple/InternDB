@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
 	    # Create the session
 	    if auth
 	    	session[:user_id] = auth.user_id
+	    	# if auth_hash["info"]["email"] =~ /ccs@colgate.edu/
+	    	# 	session[:admin] = 
 	    end
 	 	redirect_to :root
 	    # render :text => "Welcome #{auth.user.name}!"
