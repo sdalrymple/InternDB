@@ -1,5 +1,4 @@
-class ExperiencesController < ApplicationController
-  before_filter :require_user
+class ExperiencesController < UsersController
 
   def new
   end
@@ -13,15 +12,6 @@ class ExperiencesController < ApplicationController
   end
 
   def index
-  end
-  
-  private
-
-  def require_user
-    unless session[:user_id]
-      flash[:error] = "You must be logged in to access this section"
-      redirect_to login_path
-    end
   end
 
 end

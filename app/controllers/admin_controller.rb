@@ -1,5 +1,5 @@
 require 'gmail_xoauth'
-class AdminController < ApplicationController
+class AdminController < UsersController
   
   before_filter :require_admin
 
