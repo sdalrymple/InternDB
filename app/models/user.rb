@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
     	Authorization.create :user => self, :provider => auth_hash["provider"], :uid => auth_hash["uid"]
   	end
   end
+  def is_admin?()
+  	# return self.email =~ /^ccs@colgate.edu$/
+  	return self.email =~ /^(ccs|dhercher)@colgate.edu$/
+  end
 end

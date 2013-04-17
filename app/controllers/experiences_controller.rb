@@ -1,4 +1,4 @@
-class ExperiencesController < ApplicationController
+class ExperiencesController < UsersController
 
   def new
   end
@@ -13,7 +13,5 @@ class ExperiencesController < ApplicationController
 
   def index
   end
-  
-  
 
 end
