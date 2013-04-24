@@ -1,6 +1,6 @@
 %h1 Share Your Experience!
 
-= form_tag admin_path(@experience), :method => :put do 
+= form_tag "/admin/#{@experience.id}", :method => :put do 
    = label :experience, :organization, 'Name of Organization'  
    = text_field :experience, 'organization' 
    = label :experience, :location, "City"

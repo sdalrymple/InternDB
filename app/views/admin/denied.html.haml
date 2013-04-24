@@ -1,0 +1,25 @@
+%h1 Colgate InternDB Denied Posts
+
+
+%table#experiences
+  %thead
+    %tr
+      %th Student
+      %th Company
+      %th Role
+      %th Date of Internship
+      %th Date of Review
+      %th Rating
+      %th View
+  %tbody
+    - @denied.each do |ex|
+      %tr
+        %td= ex.get_name
+        %td= ex.organization
+        %td= ex.function
+        %td= ex.date_str
+        %td= ex.updated_at
+        %td= ex.rating
+        %td= link_to "View", "/admin/#{ex.id}"
+
+=link_to 'Home', '/'

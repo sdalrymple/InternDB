@@ -15,8 +15,11 @@ class AdminController < UsersController
   
 
   def unapproved
-      @unapproved = Experience.where("approved = ?", false)
+    @unapproved = Experience.where("approved = ?", false)
+  end
 
+  def denied
+    @denied = Experience.where("denied = ?", true)
   end
 
 
@@ -27,12 +30,17 @@ class AdminController < UsersController
     @user = User.find(@experience.user_id)
     @approveURI = "/admin/#{id}/approve"
     @denyURI = "/admin/#{id}/deny"
+    if @experience.approved == false
+      @previous = admin_unapproved_path
+    else
+      @previous = admin_denied_path
+    end
   end
 
   def approve
     id = params[:id]
     @experience = Experience.find(id)
-    @experience.update_attributes!(:approved => true)
+    @experience.update_attributes!({:approved => true, :denied => nil } )
     flash[:notice] = "Post has been approved!"
     redirect_to admin_unapproved_path
   end
@@ -43,9 +51,18 @@ class AdminController < UsersController
     @user = User.find(@experience[:user_id])
     UserMailer.deny_email(@user).deliver
     flash[:notice] = "Post has been denied, student has been notified"
-    @experience.destroy
+    @experience[:approved] = nil
+    @experience[:denied] = true
+    @experience.save()
     redirect_to admin_unapproved_path
   end
+
+  def destroy
+    id = params[:id]
+    @experience = Experience.find(id)
+    @experience.destroy()
+    redirect_to admin_denied_path
+    end
 
   def edit
     @experience = Experience.find params[:id]
@@ -55,7 +72,7 @@ class AdminController < UsersController
     @experience = Experience.find params[:id]
     @experience.update_attributes!(params[:experience])
     flash[:notice] = "Post has been changed!"
-    redirect_to admin_path(@experience)
+    redirect_to "/admin/#{@experience.id}"
   end
 
   private

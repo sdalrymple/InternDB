@@ -13,12 +13,13 @@
       %th View
   %tbody
     - @unapproved.each do |un|
-      %td= un.get_name
-      %td= un.organization
-      %td= un.function
-      %td= un.date_str
-      %td= un.updated_at
-      %td= un.rating
-      %td= link_to "View", admin_path(un)
+      %tr
+        %td= un.get_name
+        %td= un.organization
+        %td= un.function
+        %td= un.date_str
+        %td= un.updated_at
+        %td= un.rating
+        %td= link_to "View", "/admin/#{un.id}"
 
 =link_to 'Home', '/'

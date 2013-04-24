@@ -15,6 +15,7 @@ InternDB::Application.routes.draw do
   match '/auth/failure', :to => 'sessions#failure'
   get '/logout', :to => 'sessions#destroy'
   match '/admin', :to => 'admin#home'
+  match '/admin/denied'
   match '/admin/unapproved'
   match '/admin/:id/approve' => 'admin#approve'
   match '/admin/:id/deny' => 'admin#deny'

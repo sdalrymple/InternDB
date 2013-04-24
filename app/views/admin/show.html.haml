@@ -26,11 +26,13 @@
 %body Written by:
 %span= @user.name
 
-
 = button_to 'Approve', @approveURI, :method => :approve
-= button_to 'Deny', @denyURI
+-if @experience.approved == false
+  = button_to 'Deny', @denyURI
+-if @experience.denied
+  = button_to 'Delete', "/admin/#{@experience.id}", :method => :delete
 = button_to 'Edit', edit_admin_path(@experience.id), :method => :get
-= button_to 'Back', admin_unapproved_path
+= button_to 'Back', @previous
 
 
 
