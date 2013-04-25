@@ -32,6 +32,8 @@ class AdminController < UsersController
     @denyURI = "/admin/#{id}/deny"
     if @experience.approved == false
       @previous = admin_unapproved_path
+    elsif @experience.approved == true
+      @previous = "/admin/#{id}"
     else
       @previous = admin_denied_path
     end
@@ -70,6 +72,9 @@ class AdminController < UsersController
 
   def update
     @experience = Experience.find params[:id]
+    if @experience.denied
+       @experience[:approved] = nil
+    end
     @experience.update_attributes!(params[:experience])
     flash[:notice] = "Post has been changed!"
     redirect_to "/admin/#{@experience.id}"

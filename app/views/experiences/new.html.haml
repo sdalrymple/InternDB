@@ -2,38 +2,65 @@
 
 = form_tag experiences_path do 
    = label :experience, :organization, 'Name of Organization'  
-   = text_field :experience, 'organization' 
-   = label :experience, :location, "City"
-   = select :experience, :location, ['New York', 'San Francisco', 'Boston']  
+   = text_field :experience, 'organization'
+   %br
+   = label :experience, :city, "City"
+   = text_field :experience, 'city'
+   = label :experience, :state, "State"
+   = text_field :experience, 'state'
+   = label :experience, :country, "Country"
+   = text_field :experience, 'country'
    %br
    %br
    = label :experience, :industry, "Industry"
-   = select :experience, :industry, ['Accounting','Insurance','Healthcare','Business','Information Technology']
-   = label :experience, :function, "Role function"
-   = select :experience, :function, ['Advertising', 'Administrative', 'Marketing', 'Event Planning']
-
+   = select :experience, :industry, ['The Arts/Design', "Business Services", "Communications/Media", "Consulting", "Computing/Technology", "Education", "Entertainment/Film/TV", "Environment/Energy", "Financial Services", "Government/Public Service", "Healthcare", "Law/Legal", "Non-profit/Advocacy", "Sports/Leisure", "Scientific Reasearch"]
+   = label :experience, :function, "In what department?"
+   = text_field :experience, 'function'
    %br
-   %br
-   = label :experience, :review, 'Describe your Experience below'
-   %br
-   = text_area :experience, 'review'
-   %br
+   = label :experience, :season, "Season"
+   = select :experience, :year, [2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030] 
+   = label :experience, :season, "Season"
+   = select :experience, :season, ['Spring', 'Winter','Summer','Fall']
    %br
    = label :experience, "Paid?"
    = select :experience, :paid, ['Yes','No']
    %br
+   = label :experience, :hands_on_review, 'Briefly describe the type of work that you did and/or any projects you worked on:'
    %br
-   = label :experience, :contact, "Name of Contact"
+   = text_area :experience, 'hands_on_review'
+   %br
+   = label :experience, :hands_on_rating, 'Please rate how relevant the work you did was to your industry (1 for being a coffee monkey, 5 for crucial work)'
+   %br
+   =select :experience, :hands_on_rating, ['1','2','3','4','5']
+   %br
+   = label :experience, :network_review, 'Briefly describe the networking oppurtinities your experience gave you:'
+   %br
+   = text_area :experience, 'network_review'
+   %br
+   = label :experience, :network_rating, 'Please rate the networking you obtained during your experience (1 for no networking, 5 for a spiderweb\'s worth)'
+   %br
+   =select :experience, :network_rating, ['1','2','3','4','5']
+   %br
+   = label :experience, :exposure_review, 'Briefely describe how the company exposed you to the industry through presentations, speakers, and day to day work:'
+   %br
+   = text_area :experience, 'exposure_review'
+   %br
+   = label :experience, :exposure_rating, 'Please the exposure to your industry during your experience (1 being terrible, 5 being great)'
+   %br
+   =select :experience, :exposure_rating, ['1','2','3','4','5']
+   %br
+   = label :experience, :contact, "Can you please name a contact that aided you in securing this experience?"
    = text_field :experience, :contact
-   = label :experience, :season, "Season"
-   = select :experience, :year, [2011,2012,2013,2014,2015] 
-   = label :experience, :season, "Season"
-   = select :experience, :season, ['Spring', 'Winter','Summer','Fall']
-   
    %br
+   = label :experience, :contact_relation, "What is the contact's relation to Colgate?"
+   = select :experience, :contact_relation, ['Parent', 'Alumni', 'Faculty', 'Other/None']
    %br
-   
-   = label :experience, :rating, "Rate your experience out of 10"
-   = select :experience, :rating, [1,2,3,4,5,6,7,8,9,10]	
+   = label :experience, "Knowing what you know now, would you repeat the experience?"
+   = select :experience, :repeat, ['Yes', 'No']
+   %br
+   = label :experience, :comments, "Any additional comments?"
+   %br
+   = text_area :experience, 'comments'
+   %br
    = submit_tag "Submit" 
 

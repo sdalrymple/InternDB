@@ -6,20 +6,22 @@
     %tr
       %th Student
       %th Company
+      %th Industry
       %th Role
       %th Date of Internship
       %th Date of Review
-      %th Rating
+      %th Composite
       %th View
   %tbody
     - @denied.each do |ex|
       %tr
         %td= ex.get_name
         %td= ex.organization
+        %td= ex.industry
         %td= ex.function
         %td= ex.date_str
         %td= ex.updated_at
-        %td= ex.rating
+        %td= ex.composite.round(2)
         %td= link_to "View", "/admin/#{ex.id}"
 
 =link_to 'Home', '/'

@@ -51,18 +51,7 @@
 %br
 %br
 
-
-%body Written by:
-%span= @user.name
-
--if @experience.approved != true
-  = button_to 'Approve', @approveURI, :method => :approve
--if @experience.denied != true
-  = button_to 'Deny', @denyURI
--if @experience.denied
-  = button_to 'Delete', "/admin/#{@experience.id}", :method => :delete
-= button_to 'Edit', edit_admin_path(@experience.id), :method => :get
-= button_to 'Back', @previous
+= button_to 'Back', root_path
 
 
 

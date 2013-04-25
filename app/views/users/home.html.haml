@@ -2,29 +2,37 @@
 
 %h2 Reviews:
 
-#reviewlist
-  - @experiences.each do |experience|
-    .entry
-      %strong.origanization= experience.organization
-      %span.industry= experience.industry
-      %span.date= experience.year
-      %span.date= experience.season
-      %span <br/>
-      %span.function= experience.function
-      %span.paid= experience.paid_str
-      %span.location= experience.location
-      %span <br/>
-      %body Rating:
-      %span.rating= experience.rating
-      %span.result= experience.result
-      %span <br/>
-      %body Review:
-      %p.review= experience.review
-      %span Contact:
-      %span.contact= experience.contact
-      %br
-      %br
+
+%table#experiences
+  %thead
+    %tr
+      %th Company
+      %th Industry
+      %th Role
+      %th Location
+      %th Date of Internship
+      %th Date of Review
+      %th Repeat?
+      %th Composite Rating
+      %th Work Relevancy
+      %th Networking
+      %th Exposure
+      %th View
+  %tbody
+    - @experiences.each do |ex|
+      %tr
+        %td= ex.organization
+        %td= ex.industry
+        %td= ex.function
+        %td= ex.citystate
+        %td= ex.date_str
+        %td= ex.updated_at.to_date
+        %td= ex.repeat?
+        %td= ex.composite.round(2)
+        %td= ex.hands_on_rating
+        %td= ex.network_rating
+        %td= ex.exposure_rating
+        %td= link_to "View", "/experiences/#{ex.id}"
       
 = link_to 'Share your experience', new_experience_path
 
-/ = link_to 'Pending Posts', admin_unapproved_path

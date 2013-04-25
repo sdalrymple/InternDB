@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424190326) do
+ActiveRecord::Schema.define(:version => 20130425142619) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -36,9 +36,22 @@ ActiveRecord::Schema.define(:version => 20130424190326) do
     t.string   "contact"
     t.boolean  "approved"
     t.text     "review"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.boolean  "denied"
+    t.text     "hands_on_review"
+    t.integer  "hands_on_rating"
+    t.text     "network_review"
+    t.integer  "network_rating"
+    t.text     "exposure_review"
+    t.integer  "exposure_rating"
+    t.string   "contact_relation"
+    t.text     "comments"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.boolean  "repeat"
+    t.float    "composite"
   end
 
   create_table "sessions", :force => true do |t|
