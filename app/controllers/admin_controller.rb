@@ -33,7 +33,7 @@ class AdminController < UsersController
     if @experience.approved == false
       @previous = admin_unapproved_path
     elsif @experience.approved == true
-      @previous = "/admin/#{id}"
+      @previous = root_path
     else
       @previous = admin_denied_path
     end
