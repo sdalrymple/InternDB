@@ -21,7 +21,7 @@
   %tbody
     - @experiences.each do |ex|
       %tr
-        %td= ex.organization
+        %td= link_to ex.organization, "/experiences/company/#{ex.id}"
         %td= ex.industry
         %td= ex.function
         %td= ex.citystate

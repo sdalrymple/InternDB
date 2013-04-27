@@ -1,17 +1,56 @@
-%h1 Welcome to the Colgate Intern Database
+%h1= @company
+%p= @would
 
-%h2 Reviews:
+%h3 Industries:
 
+%p= @ind
+
+%h3 Popular Departments:
+
+%p= @roles
+
+%h3 Average Ratings:
+
+%table#ratings
+  %thead
+    %tr
+      %th Composite
+      %th Work Relevancy
+      %th Networking
+      %th Exposure to Industry
+  %tbody
+    %td= @compo
+    %td= @hands
+    %td= @net
+    %td= @expose
+
+
+%h3 Helpful Contacts:
+
+%table#Contacts
+  %thead
+    %tr
+      %th Name
+      %th Relation to Colgate
+      %th Times Referenced
+  - @contactlist.each do |cont|
+    %tr
+      %td= cont
+      %td= @relation[cont]
+      %td= @contact[cont]
+
+
+%h3 Reviews:
 
 %table#experiences
   %thead
     %tr
-      %th Company
       %th Industry
       %th Role
       %th Location
       %th Date of Internship
       %th Date of Review
+      %th Paid
       %th Repeat?
       %th Composite Rating
       %th Work Relevancy
@@ -21,12 +60,12 @@
   %tbody
     - @experiences.each do |ex|
       %tr
-        %td= link_to ex.organization, "/experiences/company/#{ex.id}"
         %td= ex.industry
         %td= ex.function
         %td= ex.citystate
         %td= ex.date_str
         %td= ex.updated_at.to_date
+        %td= ex.paid_str
         %td= ex.repeat?
         %td= ex.composite.round(2)
         %td= ex.hands_on_rating
@@ -34,9 +73,4 @@
         %td= ex.exposure_rating
         %td= link_to "View", "/admin/#{ex.id}"
 
-      
-= link_to 'Share your experience', new_experience_path
-
-= link_to 'Pending Posts', admin_unapproved_path
-
-= link_to 'Denied Posts', "/admin/denied"
+= link_to 'Home', root_path
