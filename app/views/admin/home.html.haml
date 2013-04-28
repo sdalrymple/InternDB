@@ -10,7 +10,7 @@
       %th Industry
       %th Role
       %th Location
-      %th Date of Internship
+      %th=link_to 'Date of Internship', admin_index_path(:sort => 'internship_date'), :id => 'internship_date_header'
       %th Date of Review
       %th Repeat?
       %th Composite Rating

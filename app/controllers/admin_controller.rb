@@ -4,13 +4,14 @@ class AdminController < UsersController
   before_filter :require_admin
 
   def home
-   logged = session[:user_id] || false
-   if logged
-     @experiences = Experience.where("approved = ?", true)
-   else   #Should we refactor this to a filter? b/c were going to be checking this every request
-     redirect_to login_path
-   end
-
+    sort = params[:sort] || session[:sort] || {}
+    case sort
+    when 'internship_date' 
+      ordering = {:order => 'year desc, season'}
+    when 'company'
+      ordering = {:order => :company}
+    end
+    @experiences = Experience.find_all_by_approved(true, ordering)
   end
   
 
