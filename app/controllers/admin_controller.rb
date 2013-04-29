@@ -1,35 +1,12 @@
 require 'gmail_xoauth'
 class AdminController < UsersController
-  
   before_filter :require_admin
+  include UsersHelper
 
   def home
     sort = params[:sort] || session[:sort] || {}
     session[:sort] = sort
-    case sort
-    when 'company'
-      ordering = {:order => :organization}
-    when 'industry'
-      ordering = {:order => :industry}
-    when 'role'
-      ordering = {:order => :function}
-    when 'location'
-      ordering = {:order => 'state, city'}
-    when 'internship_date' 
-      ordering = {:order => 'year desc, season'}
-    when 'review_date'
-      ordering = {:order => 'updated_at desc'}
-    when 'repeat'
-      ordering = {:order => :repeat}
-    when 'composite'
-      ordering = {:order => 'composite desc'}
-    when 'hands_on_rating'
-      ordering = {:order => 'hands_on_rating desc'}
-    when 'network_rating'
-      ordering = {:order => 'network_rating desc'}
-    when 'exposure_rating'
-      ordering = {:order => 'exposure_rating desc'}
-    end
+    ordering = choose_ordering(sort)
     @experiences = Experience.find_all_by_approved(true, ordering)
   end
   

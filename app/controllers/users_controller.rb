@@ -2,6 +2,7 @@ require 'gmail_xoauth'
 class UsersController < ApplicationController
   # include OauthHelper
   before_filter :require_user
+  include UsersHelper
 
   def logout
   end
@@ -26,11 +27,9 @@ class UsersController < ApplicationController
     redirect_to admin_path
    else
     sort = params[:sort] || session[:sort] || {}
-    case sort
-    when 'internship_date' 
-      ordering = {:order => 'year desc, season'}
-    end
-    @experiences = Experience.where("approved = ?", true, ordering)
+    session[:sort] = sort
+    ordering = choose_ordering(sort)
+    @experiences = Experience.find_all_by_approved(true, ordering)
    end
    # else   #Should we refactor this to a filter? b/c were going to be checking this every request
    #   redirect_to login_path
