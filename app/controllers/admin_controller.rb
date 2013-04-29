@@ -7,7 +7,9 @@ class AdminController < UsersController
     sort = params[:sort] || session[:sort] || {}
     session[:sort] = sort
     ordering = choose_ordering(sort)
-    @experiences = Experience.find_all_by_approved(true, ordering)
+    exp = Experience.where("approved = ?", true)
+    exp = exp.order(ordering[:order])
+    @experiences = exp
   end
   
 
