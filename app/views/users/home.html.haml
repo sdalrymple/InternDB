@@ -2,21 +2,20 @@
 
 %h2 Reviews:
 
-
 %table#experiences
   %thead
     %tr
-      %th Company
-      %th Industry
-      %th Role
-      %th Location
-      %th Date of Internship
-      %th Date of Review
-      %th Repeat?
-      %th Composite Rating
-      %th Work Relevancy
-      %th Networking
-      %th Exposure
+      %th=link_to 'Company', root_path(:sort => 'company'), :id => 'company_header'
+      %th=link_to 'Industry', root_path(:sort => 'industry'), :id => 'industry_header'
+      %th=link_to 'Role', root_path(:sort => 'role'), :id => 'role_header'
+      %th=link_to 'Location', root_path(:sort => 'location'), :id => 'location_header'
+      %th=link_to 'Date of Internship', root_path(:sort => 'internship_date'), :id => 'internship_date_header'
+      %th=link_to 'Date of Review', root_path(:sort => 'review_date'), :id => 'review_date_header'
+      %th=link_to 'Repeat?', root_path(:sort => 'repeat'), :id => 'repeat_header'
+      %th=link_to 'Composite Rating', root_path(:sort => 'composite'), :id => 'composite_header'
+      %th=link_to 'Work Relevancy', root_path(:sort => 'hands_on_rating'), :id => 'hands_on_rating_header'
+      %th=link_to 'Networking', root_path(:sort => 'network_rating'), :id => 'network_rating_header'
+      %th=link_to 'Exposure', root_path(:sort => 'exposure_rating'), :id => 'exposure_rating_header'
       %th View
   %tbody
     - @experiences.each do |ex|
