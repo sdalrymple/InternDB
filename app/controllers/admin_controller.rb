@@ -5,13 +5,34 @@ class AdminController < UsersController
 
   def home
     sort = params[:sort] || session[:sort] || {}
+   
+     
     session[:sort] = sort
     ordering = choose_ordering(sort)
     exp = Experience.where("approved = ?", true)
     exp = exp.order(ordering[:order])
     @experiences = exp
+    
+    @industry = Experience.select("industry").group("industry")
+    @organization = Experience.select("organization").group("organization")
+   
+    search = params[:experience]
+   
+    if search.nil? == false    
+           keys = [:industry, :organization, :season, :city, :state]
+           @experiences = Experience.all(:conditions => (SmartTuple.new(" AND ").add_each(keys) do |k| {k => search[k]} if search[k].present? end).compile)
+    else
+  @experiences = exp
+
+
+
+    end
+
+
+
   end
-  
+
+      
 
   def unapproved
     @unapproved = Experience.where("approved = ?", false)
@@ -88,8 +109,11 @@ class AdminController < UsersController
     end
   end
 
-end
+  
 
+
+
+end
 
 
 
