@@ -26,9 +26,9 @@ class UsersController < ApplicationController
    if User.find(session[:user_id]).is_admin?()
     redirect_to admin_path
    else
-    sort = params[:sort] || session[:sort] || {}
+    sort = params[:sort] || session[:sort] || :updated_at
     session[:sort] = sort
-    ordering = choose_ordering(sort)
+    ordering = choose_ordering(sort) || :updated_at
     exp = Experience.where("approved = ?", true)
     exp = exp.order(ordering[:order])
     @experiences = exp
