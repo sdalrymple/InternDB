@@ -1,4 +1,3 @@
-
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
@@ -15,6 +14,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'smart_tuple'
 end
 
 group :test do

@@ -1,7 +1,22 @@
 %h1 Welcome to the Colgate Intern Database
 
-%h2 Reviews:
+%h2 Search Your Desired Experience 
 
+= form_tag(admin_path, :method => :get) do
+  = label :experience, :industry,"Industry"
+  = select :experience,:industry, ["", "The Arts/Design", "Business Services", "Communications/Media", "Consulting", "Computing/Technology", "Education", "Entertainment/Film/TV", "Environmental/Energy", "Financial Services", "Government/Public Service", "Healthcare", "Law/Legal", "Non-profit/Advocacy", "Sports/Leisure", "Scientific Research"]
+  = label :experience, :season, "Season"
+  = select :experience, :season, ["","Spring", "Winter", "Summer","Fall"]
+  = label :experience, :organizaion, "Organization"
+  = text_field :experience, 'organization'
+  
+  = label :experience, :city, "City"
+  = text_field :experience, 'city'
+  = label :experience, :state, "State"
+  = text_field :experience, 'state'
+  = submit_tag "Search"
+  
+%h3 Reviews:
 
 %table#experiences
   %thead

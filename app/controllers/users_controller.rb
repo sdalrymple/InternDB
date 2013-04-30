@@ -33,6 +33,23 @@ class UsersController < ApplicationController
     exp = exp.order(ordering[:order])
     @experiences = exp
    end
+   
+    search = params[:experience]
+   
+    if search.nil? == false    
+           keys = [:industry, :organization, :season, :city, :state]
+           @experiences = Experience.all(:conditions => (SmartTuple.new(" AND ").add_each(keys) do |k| {k => search[k]} if search[k].present? end).compile)
+    else
+  @experiences = exp
+
+
+
+    end
+
+
+
+
+
    # else   #Should we refactor this to a filter? b/c were going to be checking this every request
    #   redirect_to login_path
    # end
