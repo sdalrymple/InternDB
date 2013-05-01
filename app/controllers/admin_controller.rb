@@ -1,18 +1,37 @@
 require 'gmail_xoauth'
 class AdminController < UsersController
-  
   before_filter :require_admin
+  include UsersHelper
 
   def home
-   logged = session[:user_id] || false
-   if logged
-     @experiences = Experience.where("approved = ?", true)
-   else   #Should we refactor this to a filter? b/c were going to be checking this every request
-     redirect_to login_path
-   end
+    sort = params[:sort] || session[:sort] || :updated_at   
+     
+    session[:sort] = sort
+    ordering = choose_ordering(sort)  || {:order => :updated_at}
+    exp = Experience.where("approved = ?", true)
+    exp = exp.order(ordering[:order])
+    @experiences = exp
+    
+    @industry = Experience.select("industry").group("industry")
+    @organization = Experience.select("organization").group("organization")
+   
+    search = params[:experience]
+   
+    if search.nil? == false    
+           keys = [:industry, :organization, :season, :city, :state]
+           @experiences = Experience.all(:conditions => (SmartTuple.new(" AND ").add_each(keys) do |k| {k => search[k]} if search[k].present? end).compile)
+    else
+  @experiences = exp
+
+
+
+    end
+
+
 
   end
-  
+
+      
 
   def unapproved
     @unapproved = Experience.where("approved = ?", false)
@@ -89,8 +108,11 @@ class AdminController < UsersController
     end
   end
 
-end
+  
 
+
+
+end
 
 
 

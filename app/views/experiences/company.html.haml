@@ -1,0 +1,76 @@
+%h1= @company
+%p= @would
+
+%h3 Industries:
+
+%p= @ind
+
+%h3 Popular Departments:
+
+%p= @roles
+
+%h3 Average Ratings:
+
+%table#ratings
+  %thead
+    %tr
+      %th Composite
+      %th Work Relevancy
+      %th Networking
+      %th Exposure to Industry
+  %tbody
+    %td= @compo
+    %td= @hands
+    %td= @net
+    %td= @expose
+
+
+%h3 Helpful Contacts:
+
+%table#Contacts
+  %thead
+    %tr
+      %th Name
+      %th Relation to Colgate
+      %th Times Referenced
+  - @contactlist.each do |cont|
+    %tr
+      %td= cont
+      %td= @relation[cont]
+      %td= @contact[cont]
+
+
+%h3 Reviews:
+
+%table#experiences
+  %thead
+    %tr
+      %th Industry
+      %th Role
+      %th Location
+      %th Date of Internship
+      %th Date of Review
+      %th Paid
+      %th Repeat?
+      %th Composite Rating
+      %th Work Relevancy
+      %th Networking
+      %th Exposure
+      %th View
+  %tbody
+    - @experiences.each do |ex|
+      %tr
+        %td= ex.industry
+        %td= ex.function
+        %td= ex.citystate
+        %td= ex.date_str
+        %td= ex.updated_at.to_date
+        %td= ex.paid_str
+        %td= ex.repeat?
+        %td= ex.composite.round(2)
+        %td= ex.hands_on_rating
+        %td= ex.network_rating
+        %td= ex.exposure_rating
+        %td= link_to "View", "/admin/#{ex.id}"
+
+= link_to 'Home', root_path

@@ -1,27 +1,42 @@
 %h1 Welcome to the Colgate Intern Database
 
-%h2 Reviews:
+%h2 Search Your Desired Experience 
 
+= form_tag(admin_path, :method => :get) do
+  = label :experience, :industry,"Industry"
+  = select :experience,:industry, ["", "The Arts/Design", "Business Services", "Communications/Media", "Consulting", "Computing/Technology", "Education", "Entertainment/Film/TV", "Environmental/Energy", "Financial Services", "Government/Public Service", "Healthcare", "Law/Legal", "Non-profit/Advocacy", "Sports/Leisure", "Scientific Research"]
+  = label :experience, :season, "Season"
+  = select :experience, :season, ["","Spring", "Winter", "Summer","Fall"]
+  = label :experience, :organizaion, "Organization"
+  = text_field :experience, 'organization'
+  
+  = label :experience, :city, "City"
+  = text_field :experience, 'city'
+  = label :experience, :state, "State"
+  = text_field :experience, 'state'
+  = submit_tag "Search"
+  
+%h3 Reviews:
 
 %table#experiences
   %thead
     %tr
-      %th Company
-      %th Industry
-      %th Role
-      %th Location
-      %th Date of Internship
-      %th Date of Review
-      %th Repeat?
-      %th Composite Rating
-      %th Work Relevancy
-      %th Networking
-      %th Exposure
+      %th=link_to 'Company', admin_index_path(:sort => 'company'), :id => 'company_header'
+      %th=link_to 'Industry', admin_index_path(:sort => 'industry'), :id => 'industry_header'
+      %th=link_to 'Role', admin_index_path(:sort => 'role'), :id => 'role_header'
+      %th=link_to 'Location', admin_index_path(:sort => 'location'), :id => 'location_header'
+      %th=link_to 'Date of Internship', admin_index_path(:sort => 'internship_date'), :id => 'internship_date_header'
+      %th=link_to 'Date of Review', admin_index_path(:sort => 'review_date'), :id => 'review_date_header'
+      %th=link_to 'Repeat?', admin_index_path(:sort => 'repeat'), :id => 'repeat_header'
+      %th=link_to 'Composite Rating', admin_index_path(:sort => 'composite'), :id => 'composite_header'
+      %th=link_to 'Work Relevancy', admin_index_path(:sort => 'hands_on_rating'), :id => 'hands_on_rating_header'
+      %th=link_to 'Networking', admin_index_path(:sort => 'network_rating'), :id => 'network_rating_header'
+      %th=link_to 'Exposure', admin_index_path(:sort => 'exposure_rating'), :id => 'exposure_rating_header'
       %th View
   %tbody
     - @experiences.each do |ex|
       %tr
-        %td= ex.organization
+        %td= link_to ex.organization, "/experiences/company/#{ex.id}"
         %td= ex.industry
         %td= ex.function
         %td= ex.citystate

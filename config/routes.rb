@@ -2,6 +2,7 @@ InternDB::Application.routes.draw do
 
   resources :users
   resources :experiences
+  match '/experiences/company/:id' => "experiences#company", :via => :get
   # match '/login' => 'users#login'
 
   root to: 'users#home'
