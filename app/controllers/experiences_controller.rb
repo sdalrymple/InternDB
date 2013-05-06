@@ -50,9 +50,9 @@ class ExperiencesController < UsersController
     @net = (net/total).round(2)
     @expose = (expose/total).round(2)
     @ind = (industries.keys) * ", "
-    @roles = (roles.keys.sort { |a,b| roles[a] <=> roles[b] })
+    @roles = (roles.keys.sort { |a,b| roles[b] <=> roles[a] })
     @roles = (@roles.take(5)) * ", "
-    @contactlist = @contact.keys.sort{ |a,b| @contact[a] <=> @contact[b] }.take(5)
+    @contactlist = @contact.keys.sort{ |a,b| @contact[b] <=> @contact[a] }.take(5)
   end
 
   def show
