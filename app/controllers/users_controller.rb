@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def home
     if User.find(session[:user_id]).is_admin?()
-      redirect_to admin_index_path
+      redirect_to admin_path and return
     else
      sort = params[:sort] || session[:sort] || {:order => :updated_at}
      session[:sort] = sort
