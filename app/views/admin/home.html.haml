@@ -9,11 +9,12 @@
   = select :experience, :season, ["","Spring", "Winter", "Summer","Fall"]
   = label :experience, :organizaion, "Organization"
   = text_field :experience, 'organization'
-  
+  %br
   = label :experience, :city, "City"
   = text_field :experience, 'city'
   = label :experience, :state, "State"
   = text_field :experience, 'state'
+  %br
   = submit_tag "Search"
   
 %h3 Reviews:
