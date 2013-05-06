@@ -22,17 +22,17 @@
 %table#experiences
   %thead
     %tr
-      %th=link_to 'Company', root_path(:sort => 'company'), :id => 'company_header'
-      %th=link_to 'Industry', root_path(:sort => 'industry'), :id => 'industry_header'
-      %th=link_to 'Role', root_path(:sort => 'role'), :id => 'role_header'
-      %th=link_to 'Location', root_path(:sort => 'location'), :id => 'location_header'
-      %th=link_to 'Date of Internship', root_path(:sort => 'internship_date'), :id => 'internship_date_header'
-      %th=link_to 'Date of Review', root_path(:sort => 'review_date'), :id => 'review_date_header'
-      %th=link_to 'Repeat?', root_path(:sort => 'repeat'), :id => 'repeat_header'
-      %th=link_to 'Composite Rating', root_path(:sort => 'composite'), :id => 'composite_header'
-      %th=link_to 'Work Relevancy', root_path(:sort => 'hands_on_rating'), :id => 'hands_on_rating_header'
-      %th=link_to 'Networking', root_path(:sort => 'network_rating'), :id => 'network_rating_header'
-      %th=link_to 'Exposure', root_path(:sort => 'exposure_rating'), :id => 'exposure_rating_header'
+      %th=link_to 'Company', root_path(:sort => 'company', :experience => @search), :id => 'company_header'
+      %th=link_to 'Industry', root_path(:sort => 'industry', :experience => @search), :id => 'industry_header'
+      %th=link_to 'Role', root_path(:sort => 'role', :experience => @search), :id => 'role_header'
+      %th=link_to 'Location', root_path(:sort => 'location', :experience => @search), :id => 'location_header'
+      %th=link_to 'Date of Internship', root_path(:sort => 'internship_date', :experience => @search), :id => 'internship_date_header'
+      %th=link_to 'Date of Review', root_path(:sort => 'review_date', :experience => @search), :id => 'review_date_header'
+      %th=link_to 'Repeat?', root_path(:sort => 'repeat', :experience => @search), :id => 'repeat_header'
+      %th=link_to 'Composite Rating', root_path(:sort => 'composite', :experience => @search), :id => 'composite_header'
+      %th=link_to 'Work Relevancy', root_path(:sort => 'hands_on_rating', :experience => @search), :id => 'hands_on_rating_header'
+      %th=link_to 'Networking', root_path(:sort => 'network_rating', :experience => @search), :id => 'network_rating_header'
+      %th=link_to 'Exposure', root_path(:sort => 'exposure_rating', :experience => @search), :id => 'exposure_rating_header'
       %th View
   %tbody
     - @experiences.each do |ex|

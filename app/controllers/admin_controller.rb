@@ -9,26 +9,18 @@ class AdminController < UsersController
     session[:sort] = sort
     ordering = choose_ordering(sort)  || {:order => :updated_at}
     exp = Experience.where("approved = ?", true)
+    @search = {industry: '', organization: '', season: '', city: '', state: ''}  
+    search = params[:experience] || nil   
+    if search.nil? == false
+      search.keys.each do |f|
+        if search[f] != ''
+          @search[f.to_sym] = search[f]
+          exp = exp.where(f.to_s + ' = ?', search[f])
+        end
+      end
+    end
     exp = exp.order(ordering[:order])
     @experiences = exp
-    
-    @industry = Experience.select("industry").group("industry")
-    @organization = Experience.select("organization").group("organization")
-   
-    search = params[:experience]
-   
-    if search.nil? == false    
-           keys = [:industry, :organization, :season, :city, :state]
-           @experiences = Experience.all(:conditions => (SmartTuple.new(" AND ").add_each(keys) do |k| {k => search[k]} if search[k].present? end).compile)
-    else
-  @experiences = exp
-
-
-
-    end
-
-
-
   end
 
       

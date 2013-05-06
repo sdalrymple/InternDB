@@ -1,5 +1,6 @@
 module UsersHelper
 	def choose_ordering(sort)
+		# debugger
 		case sort
 	    when 'company'
 	      ordering = {:order => :organization}

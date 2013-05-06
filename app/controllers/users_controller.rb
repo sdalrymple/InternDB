@@ -23,28 +23,29 @@ class UsersController < ApplicationController
   end
 
   def home
-   if User.find(session[:user_id]).is_admin?()
-    redirect_to admin_path
-   else
-    sort = params[:sort] || session[:sort] || :updated_at
-    session[:sort] = sort
-    ordering = choose_ordering(sort) || {:order => :updated_at}
-    exp = Experience.where("approved = ?", true)
+    if User.find(session[:user_id]).is_admin?()
+      redirect_to admin_index_path
+    else
+     sort = params[:sort] || session[:sort] || {:order => :updated_at}
+     session[:sort] = sort
+     ordering = choose_ordering(sort) || {:order => :updated_at}
+     exp = Experience.where("approved = ?", true)
+     # exp = exp.order(ordering[:order])
+     # @experiences = exp
+    end 
+    @search = {industry: '', organization: '', season: '', city: '', state: ''}  
+    search = params[:experience] || nil   
+    if search.nil? == false
+      search.keys.each do |f|
+        if search[f] != ''
+          @search[f.to_sym] = search[f]
+          exp = exp.where(f.to_s + ' = ?', search[f])
+        end
+      end
+    end
     exp = exp.order(ordering[:order])
     @experiences = exp
-   end
-   
-    search = params[:experience]
-   
-    if search.nil? == false    
-           keys = [:industry, :organization, :season, :city, :state]
-           @experiences = Experience.all(:conditions => (SmartTuple.new(" AND ").add_each(keys) do |k| {k => search[k]} if search[k].present? end).compile)
-    else
-  @experiences = exp
-
-
-
-    end
+  end
 
 
 
@@ -54,8 +55,6 @@ class UsersController < ApplicationController
    #   redirect_to login_path
    # end
 
-  end
-
   private
 
   def require_user
@@ -63,6 +62,7 @@ class UsersController < ApplicationController
       flash[:error] = "You must be logged in to access this section"
       redirect_to login_path
     end
+    @user_id = session[:user_id]
   end
 
 end

@@ -21,17 +21,17 @@
 %table#experiences
   %thead
     %tr
-      %th=link_to 'Company', admin_index_path(:sort => 'company'), :id => 'company_header'
-      %th=link_to 'Industry', admin_index_path(:sort => 'industry'), :id => 'industry_header'
-      %th=link_to 'Role', admin_index_path(:sort => 'role'), :id => 'role_header'
-      %th=link_to 'Location', admin_index_path(:sort => 'location'), :id => 'location_header'
-      %th=link_to 'Date of Internship', admin_index_path(:sort => 'internship_date'), :id => 'internship_date_header'
-      %th=link_to 'Date of Review', admin_index_path(:sort => 'review_date'), :id => 'review_date_header'
-      %th=link_to 'Repeat?', admin_index_path(:sort => 'repeat'), :id => 'repeat_header'
-      %th=link_to 'Composite Rating', admin_index_path(:sort => 'composite'), :id => 'composite_header'
-      %th=link_to 'Work Relevancy', admin_index_path(:sort => 'hands_on_rating'), :id => 'hands_on_rating_header'
-      %th=link_to 'Networking', admin_index_path(:sort => 'network_rating'), :id => 'network_rating_header'
-      %th=link_to 'Exposure', admin_index_path(:sort => 'exposure_rating'), :id => 'exposure_rating_header'
+      %th=link_to 'Company', admin_path(:sort => 'company', :experience => @search), :id => 'company_header'
+      %th=link_to 'Industry', admin_path(:sort => 'industry', :experience => @search), :id => 'industry_header'
+      %th=link_to 'Role', admin_path(:sort => 'role', :experience => @search), :id => 'role_header'
+      %th=link_to 'Location', admin_path(:sort => 'location', :experience => @search), :id => 'location_header'
+      %th=link_to 'Date of Internship', admin_path(:sort => 'internship_date', :experience => @search), :id => 'internship_date_header'
+      %th=link_to 'Date of Review', admin_path(:sort => 'review_date', :experience => @search), :id => 'review_date_header'
+      %th=link_to 'Repeat?', admin_path(:sort => 'repeat', :experience => @search), :id => 'repeat_header'
+      %th=link_to 'Composite Rating', admin_path(:sort => 'composite', :experience => @search), :id => 'composite_header'
+      %th=link_to 'Work Relevancy', admin_path(:sort => 'hands_on_rating', :experience => @search), :id => 'hands_on_rating_header'
+      %th=link_to 'Networking', admin_path(:sort => 'network_rating', :experience => @search), :id => 'network_rating_header'
+      %th=link_to 'Exposure', admin_path(:sort => 'exposure_rating', :experience => @search), :id => 'exposure_rating_header'
       %th View
   %tbody
     - @experiences.each do |ex|
