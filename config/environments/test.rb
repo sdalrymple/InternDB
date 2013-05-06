@@ -38,5 +38,9 @@ InternDB::Application.configure do
 
   GOOGLE_KEY = '908672816924.apps.googleusercontent.com'
   GOOGLE_SECRET = 'VKnWvNPSOfiupz4CTrdUDxwR'
+  
 
+  #allow for session changes in cukes
+  config.middleware.use RackSessionAccess::Middleware
+ 
 end

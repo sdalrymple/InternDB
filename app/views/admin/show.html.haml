@@ -56,7 +56,7 @@
 %span= @user.name
 
 -if @experience.approved != true
-  = button_to 'Approve', @approveURI, :method => :approve
+  = button_to 'Approve', @approveURI, :method => :approve, :id => "Approve", :class => "Approve"
 -if @experience.denied != true
   = button_to 'Deny', @denyURI
 -if @experience.denied

@@ -22,6 +22,10 @@ module NavigationHelpers
     when /^the approval log page$/ then '/admin/unapproved'
     when /^the edit page$/ then '/admin/2/edit'
 
+    when /^the "Google" company overview page$/ then "/experiences/company/241125842"
+
+    when /^the Create New Review page$/ then "/experiences/new"
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

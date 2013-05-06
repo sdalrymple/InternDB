@@ -9,10 +9,10 @@ student_user:
   id: 2
 
 admin_user:
-  class_year: 0000
-  email: jobs@colgate.edu
+  class_year: 2012
+  email: sdalrymple@colgate.edu
   major: nil
-  name: jackie obs
+  name: Sean Dalrymple
   user_role: admin
   id: 5
 

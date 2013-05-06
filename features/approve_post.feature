@@ -11,8 +11,10 @@ Background:
 #Given the there exists a experience named "exp1" with the following data:
 # accepted | approved | contact | extended | function | industry | location | organization | paid | rating | id  |
 # true     | false    | Mr. Lee | true     | QA       | software | NYC      | Google       | true | 5      | 999 |
-  Given I am on the view review page
-
+  
+  Given that I am logged in as an admin
+  And I am on the view review page
+  
 
 Scenario: Approve Post
   When I press "Approve"

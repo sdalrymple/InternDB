@@ -15,6 +15,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'smart_tuple'
+  gem 'rack_session_access'
 end
 
 group :test do

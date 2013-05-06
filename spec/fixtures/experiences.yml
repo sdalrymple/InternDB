@@ -3,7 +3,7 @@
 goldman_experience:
   id: 2
   accepted: true
-  approved: true
+  approved: false
   contact: Lloyd Blankfein
   extended: true
   function: Desk Analyst
@@ -13,6 +13,19 @@ goldman_experience:
   paid: true
   rating: 5
   review: exciting, informative experience
+  hands_on_review: Good times
+  hands_on_rating: 4
+  network_review: Fixtures are cool
+  network_rating: 5
+  exposure_review: Exposed!
+  exposure_rating: 5
+  contact_relation: Parent
+  comments: Nope
+  city: New York
+  state: New York
+  country: USA
+  repeat: true
+  composite: 4.67
   season: summer
   user_id: 2
   year: 2011
@@ -29,6 +42,19 @@ colgate_experience:
   paid: true
   rating: 5
   review: hands on research, would reccommend.
+  hands_on_review: Lots of good research
+  hands_on_rating: 4
+  network_review: Met some Hamilton Profs too!
+  network_rating: 5
+  exposure_review: Got a feel for the place
+  exposure_rating: 5
+  contact_relation: Faculty
+  comments: Nope
+  city: Hamilton
+  state: New York
+  country: USA
+  repeat: true
+  composite: 4.67
   season: summer
   user_id: 2
   year: 2012
@@ -47,6 +73,20 @@ NBC_experience:
   paid: false
   rating: 5
   review: some issues with upper level management, but fun nonetheless
+  hands_on_review: I got to produce my own segment!
+  hands_on_rating: 4
+  network_review: I met triumph
+  network_rating: 5
+  exposure_review: Conan needs a haircut
+  exposure_rating: 5
+  contact_relation: Alumni
+  comments: Nope
+  city: LA
+  state: CA
+  country: USA
+  repeat: false
+  composite: 4.67
+
   season: winter
   user_id: 3
   year: 2010
