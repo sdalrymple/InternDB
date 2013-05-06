@@ -35,4 +35,8 @@ InternDB::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  GOOGLE_KEY = '908672816924.apps.googleusercontent.com'
+  GOOGLE_SECRET = 'VKnWvNPSOfiupz4CTrdUDxwR'
+
 end
