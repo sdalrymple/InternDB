@@ -12,10 +12,10 @@ class AdminController < UsersController
     @search = {industry: '', organization: '', season: '', city: '', state: ''}  
     search = params[:experience] || nil   
     if search.nil? == false
-      search.keys.each do |f|
+      @search.keys.each do |f|
         if search[f] != ''
           @search[f.to_sym] = search[f]
-          exp = exp.where(f.to_s + ' = ?', search[f])
+          exp = exp.where('lower(' + f.to_s + ') = lower(?)', search[f])
         end
       end
     end
